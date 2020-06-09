@@ -1,0 +1,1002 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/9/2020 9:22:43 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SX-L-08"
+  DTS:CreatorName="AzureAD\IleanaRodriguez"
+  DTS:DTSID="{AF9324A3-0170-43D4-84B6-8BB53F6377C4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.94"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package2"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A5025918-CB07-4C12-B4AE-F5B9339DF287}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Agrupar Valor Europa"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{954CC163-6CF0-4E25-BE16-46246128DBAC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Agrupar Valor Europa"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Agrupar Valor Europa\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[ValorEuropa]"
+                      cachedDataType="r8"
+                      cachedName="ValorEuropa"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[Club]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Club"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Club]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[Liga]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Liga"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Liga]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[Nacionalidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nacionalidad"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[PiePreferido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PiePreferido"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[PiePreferido]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1].Columns[AñoNacimiento]"
+                      cachedDataType="i4"
+                      cachedName="AñoNacimiento"
+                      lineageId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output].Columns[AñoNacimiento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MinValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MinValorEuropa]"
+                      name="MinValorEuropa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">6</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MaxValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MaxValorEuropa]"
+                      name="MaxValorEuropa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">7</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AvgValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AvgValorEuropa]"
+                      name="AvgValorEuropa">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Club]"
+                      name="Club">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Club]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Liga]"
+                      name="Liga">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Liga]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Nacionalidad]"
+                      name="Nacionalidad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Nacionalidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[PiePreferido]"
+                      name="PiePreferido">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[PiePreferido]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AñoNacimiento]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AñoNacimiento]"
+                      name="AñoNacimiento">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output].Columns[AñoNacimiento]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Agregar Año Nacimiento"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Inputs[Derived Column Input].Columns[FechaNacimiento]"
+                      cachedDataType="dbDate"
+                      cachedName="FechaNacimiento"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[FechaNacimiento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output].Columns[AñoNacimiento]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output].Columns[AñoNacimiento]"
+                      name="AñoNacimiento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[YEAR](#{Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[FechaNacimiento]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">YEAR(FechaNacimiento)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Agrupar Valor Europa\Obtener Jugadores"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Obtener Jugadores"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  [ValorEuropa] , Club, Liga, Nacionalidad , PiePreferido,FechaNacimiento
+from FIFA</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Agrupar Valor Europa\Obtener Jugadores.Connections[OleDbConnection]"
+                  connectionManagerID="{91284BCA-B19F-410F-A4E0-30F92EFAEBF8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SX-L-08.SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[ValorEuropa]"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[ValorEuropa]"
+                      name="ValorEuropa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Club]"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Club]"
+                      name="Club"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Liga]"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Liga]"
+                      name="Liga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Nacionalidad]"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[Nacionalidad]"
+                      name="Nacionalidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[PiePreferido]"
+                      length="50"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[PiePreferido]"
+                      name="PiePreferido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[ValorEuropa]"
+                      dataType="r8"
+                      name="ValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Club" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Liga" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PiePreferido" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ValorEuropa]"
+                      name="ValorEuropa" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Club]"
+                      name="Club" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Liga]"
+                      name="Liga" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[Nacionalidad]"
+                      name="Nacionalidad" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[PiePreferido]"
+                      name="PiePreferido" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[FechaNacimiento]"
+                      name="FechaNacimiento" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Agrupar Valor Europa\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ejercicio2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Agrupar Valor Europa\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{91284BCA-B19F-410F-A4E0-30F92EFAEBF8}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[SX-L-08.SSIS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MinValorEuropa]"
+                      cachedDataType="r8"
+                      cachedName="MinValorEuropa"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinValorEuropa]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MinValorEuropa]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MaxValorEuropa]"
+                      cachedDataType="r8"
+                      cachedName="MaxValorEuropa"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxValorEuropa]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[MaxValorEuropa]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AvgValorEuropa]"
+                      cachedDataType="r8"
+                      cachedName="AvgValorEuropa"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgValorEuropa]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AvgValorEuropa]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Club]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Club"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Club]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Club]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Liga]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Liga"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liga]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Liga]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nacionalidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nacionalidad"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nacionalidad]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[Nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PiePreferido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PiePreferido"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PiePreferido]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[PiePreferido]" />
+                    <inputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[AñoNacimiento]"
+                      cachedDataType="i4"
+                      cachedName="AñoNacimiento"
+                      externalMetadataColumnId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AñoNacimiento]"
+                      lineageId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1].Columns[AñoNacimiento]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MaxValorEuropa]"
+                      dataType="r8"
+                      name="MaxValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[MinValorEuropa]"
+                      dataType="r8"
+                      name="MinValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AvgValorEuropa]"
+                      dataType="r8"
+                      name="AvgValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Club" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Liga" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PiePreferido" />
+                    <externalMetadataColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[AñoNacimiento]"
+                      dataType="i4"
+                      name="AñoNacimiento" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Agrupar Valor Europa\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Agrupar Valor Europa\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Agrupar Valor Europa\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Agrupar Valor Europa.Paths[Aggregate Output 1]"
+              endId="Package\Agrupar Valor Europa\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Aggregate Output 1"
+              startId="Package\Agrupar Valor Europa\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Agrupar Valor Europa.Paths[Derived Column Output]"
+              endId="Package\Agrupar Valor Europa\Aggregate.Inputs[Aggregate Input 1]"
+              name="Derived Column Output"
+              startId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Agrupar Valor Europa.Paths[OLE DB Source Output]"
+              endId="Package\Agrupar Valor Europa\Agregar Año Nacimiento.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Agrupar Valor Europa\Obtener Jugadores.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Agrupar Valor Europa"
+          TopLeft="297,76" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Agrupar Valor Europa">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Agrupar Valor Europa\Obtener Jugadores"
+          TopLeft="354,67" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Agrupar Valor Europa\Aggregate"
+          TopLeft="376,277" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\Agrupar Valor Europa\Agregar Año Nacimiento"
+          TopLeft="337,178" />
+        <EdgeLayout
+          Id="Package\Agrupar Valor Europa.Paths[OLE DB Source Output]"
+          TopLeft="435.75,109">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Agrupar Valor Europa.Paths[Derived Column Output]"
+          TopLeft="436.5,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,57"
+              Start="0,0"
+              End="0,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Agrupar Valor Europa\OLE DB Destination"
+          TopLeft="348,393" />
+        <EdgeLayout
+          Id="Package\Agrupar Valor Europa.Paths[Aggregate Output 1]"
+          TopLeft="436.5,319">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74"
+              Start="0,0"
+              End="0,66.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,66.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Agrupar Valor Europa\Obtener Jugadores">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Agrupar Valor Europa\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
