@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="SX-L-08"
   DTS:CreatorName="AzureAD\IleanaRodriguez"
-  DTS:DTSID="{AF9324A3-0170-43D4-84B6-8BB53F6377C4}"
+  DTS:DTSID="{D5A4CEA9-903A-4BA6-ADE7-28F8E9E3ADA8}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.94"
   DTS:LocaleID="1033"
-  DTS:ObjectName="Package2"
+  DTS:ObjectName="Ejercicio 17 - Row and Percentange Sampling"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{A5025918-CB07-4C12-B4AE-F5B9339DF287}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{C4ECE2AD-83AC-42D8-9006-632C8A9B10D3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
